@@ -112,9 +112,9 @@ export function ProjectsSection() {
               key={index}
               variants={projectCardHover}
               whileHover="hover"
-              className="project-card"
+              className="project-card h-full"
             >
-              <Card className="bg-card border-border hover:border-primary/30 transition-all duration-300 overflow-hidden">
+              <Card className="bg-card border-border hover:border-primary/30 transition-all duration-300 overflow-hidden h-full flex flex-col">
                 <div className="relative overflow-hidden">
                   <img
                     src={project.image}
@@ -123,11 +123,11 @@ export function ProjectsSection() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                 </div>
-                <CardContent className="p-6">
+                <CardContent className="p-6 flex-1 flex flex-col">
                   <h3 className="text-xl font-bold mb-3 text-foreground">
                     {project.title}
                   </h3>
-                  <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
+                  <p className="text-muted-foreground mb-4 text-sm leading-relaxed flex-1">
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-2 mb-4">
@@ -141,7 +141,7 @@ export function ProjectsSection() {
                       </Badge>
                     ))}
                   </div>
-                  <div className="flex gap-4">
+                  <div className="flex gap-4 mt-auto">
                     {project.github && (
                       <Button
                         variant="ghost"

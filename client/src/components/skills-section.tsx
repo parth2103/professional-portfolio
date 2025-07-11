@@ -87,74 +87,39 @@ export function SkillsSection() {
           Technical Skills
         </motion.h2>
 
-        {/* Frontend Skills */}
-        <div className="mb-16">
-          <motion.h3
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-2xl font-bold mb-8 text-center text-foreground"
-          >
-            Frontend Development
-          </motion.h3>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6"
-          >
-            {frontendSkills.map((skill, index) => (
-              <SkillCard key={index} skill={skill} />
-            ))}
-          </motion.div>
-        </div>
+        {/* All Skills in One Grid */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={staggerContainer}
+          className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6"
+        >
+          {[...frontendSkills, ...backendSkills, ...cloudSkills].map((skill, index) => (
+            <SkillCard key={index} skill={skill} />
+          ))}
+        </motion.div>
 
-        {/* Backend Skills */}
-        <div className="mb-16">
-          <motion.h3
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-2xl font-bold mb-8 text-center text-foreground"
-          >
-            Backend Development
-          </motion.h3>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6"
-          >
-            {backendSkills.map((skill, index) => (
-              <SkillCard key={index} skill={skill} />
-            ))}
-          </motion.div>
-        </div>
-
-        {/* Cloud & DevOps */}
-        <div>
-          <motion.h3
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-2xl font-bold mb-8 text-center text-foreground"
-          >
-            Cloud & DevOps
-          </motion.h3>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6"
-          >
-            {cloudSkills.map((skill, index) => (
-              <SkillCard key={index} skill={skill} />
-            ))}
-          </motion.div>
-        </div>
+        {/* Skill Categories */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-16 grid md:grid-cols-3 gap-8"
+        >
+          <div className="text-center">
+            <h3 className="text-xl font-bold mb-2 text-primary">Frontend</h3>
+            <p className="text-muted-foreground text-sm">React, JavaScript, UI/UX</p>
+          </div>
+          <div className="text-center">
+            <h3 className="text-xl font-bold mb-2 text-secondary">Backend</h3>
+            <p className="text-muted-foreground text-sm">Node.js, Python, Databases</p>
+          </div>
+          <div className="text-center">
+            <h3 className="text-xl font-bold mb-2 text-accent">Cloud & DevOps</h3>
+            <p className="text-muted-foreground text-sm">AWS, Docker, Kubernetes</p>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
