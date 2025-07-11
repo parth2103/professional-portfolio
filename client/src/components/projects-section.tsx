@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { staggerContainer, projectCardHover } from "@/lib/animations";
+import { TechStackVisualization } from "./custom-artwork";
+import { ProgressiveImage } from "./progressive-image";
 
 interface Project {
   title: string;
@@ -95,10 +97,21 @@ export function ProjectsSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text"
+          className="text-4xl md:text-5xl font-bold text-center mb-8 gradient-text"
         >
           Featured Projects
         </motion.h2>
+
+        {/* Tech Stack Visualization */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-16 max-w-lg mx-auto"
+        >
+          <TechStackVisualization />
+        </motion.div>
 
         <motion.div
           initial="hidden"
@@ -116,7 +129,7 @@ export function ProjectsSection() {
             >
               <Card className="bg-card border-border hover:border-primary/30 transition-all duration-300 overflow-hidden h-full flex flex-col">
                 <div className="relative overflow-hidden">
-                  <img
+                  <ProgressiveImage
                     src={project.image}
                     alt={project.title}
                     className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"

@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FloatingShapes } from "./floating-shapes";
+import { Floating3DShapes } from "./floating-3d-shapes";
 import { fadeInUp, buttonHover } from "@/lib/animations";
 
 export function HeroSection() {
@@ -42,6 +43,7 @@ export function HeroSection() {
       className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-background via-background to-muted"
     >
       <FloatingShapes />
+      <Floating3DShapes />
 
       {/* Hero Content */}
       <div className="container mx-auto px-6 text-center relative z-10">
