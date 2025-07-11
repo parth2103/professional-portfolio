@@ -25,7 +25,7 @@ Preferred communication style: Simple, everyday language.
 - **Database**: PostgreSQL with Drizzle ORM
 - **Database Provider**: Neon Database (@neondatabase/serverless)
 - **Validation**: Zod for schema validation and type safety
-- **Session Management**: In-memory storage with fallback to PostgreSQL sessions
+- **Session Management**: PostgreSQL database storage with DatabaseStorage class
 
 ### Development Setup
 - **Development Mode**: Vite dev server with HMR (Hot Module Replacement)
