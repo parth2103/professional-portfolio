@@ -65,7 +65,7 @@ export function AboutSection() {
             className="relative"
           >
             <img
-              src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif"
+              src="/attached_assets/coder_1752266192145.gif"
               alt="Coding animation - developer working on computer"
               className="rounded-2xl shadow-2xl w-full h-auto"
             />
