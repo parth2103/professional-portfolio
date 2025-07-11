@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { slideUp, fadeInUp } from "@/lib/animations";
-import { CodingWorkspaceArt } from "./custom-artwork";
 
 export function AboutSection() {
   return (
@@ -65,9 +64,11 @@ export function AboutSection() {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="rounded-2xl shadow-2xl w-full h-auto overflow-hidden">
-              <CodingWorkspaceArt />
-            </div>
+            <img
+              src="https://media.giphy.com/media/LaVp0AyqR5bGsC5Cbm/giphy.gif"
+              alt="Coding animation - developer working on computer"
+              className="rounded-2xl shadow-2xl w-full h-auto"
+            />
             <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl" />
           </motion.div>
         </div>

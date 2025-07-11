@@ -106,20 +106,6 @@
     animation-delay: -3s;
   }
 
-  .clip-path-triangle {
-    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-  }
-
-  .transform-gpu {
-    transform: translateZ(0);
-    backface-visibility: hidden;
-    perspective: 1000px;
-  }
-
-  .transform-3d {
-    transform-style: preserve-3d;
-  }
-
   .skill-card {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
