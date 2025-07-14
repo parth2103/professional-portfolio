@@ -36,21 +36,21 @@ export function AboutSection() {
             >
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-                  <MapPin size={20} className="text-white" />
+                  <MapPin size={20} className="text-foreground" />
                 </div>
                 <span className="text-foreground">Los Angeles, CA</span>
               </div>
               
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-secondary rounded-full flex items-center justify-center">
-                  <Mail size={20} className="text-white" />
+                  <Mail size={20} className="text-foreground" />
                 </div>
                 <span className="text-foreground">parth.gohil.work@gmail.com</span>
               </div>
               
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center">
-                  <Phone size={20} className="text-white" />
+                  <Phone size={20} className="text-foreground" />
                 </div>
                 <span className="text-foreground">(818) 574-9345</span>
               </div>
