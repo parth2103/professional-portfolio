@@ -1,4 +1,4 @@
-import { users, contactMessages, type User, type InsertUser, type ContactMessage, type InsertContactMessage } from "@shared/schema";
+import { users, contactMessages, type User, type InsertUser, type ContactMessage, type InsertContactMessage } from "./shared/schema";
 import { db } from "./db";
 import { eq } from "drizzle-orm";
 
