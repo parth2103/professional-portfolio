@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
-import { storage } from "./storage";
-import { sendThankYouEmail } from "./mailer";
+import { storage } from "./storage.js";
+import { sendThankYouEmail } from "./mailer.js";
 import { insertContactMessageSchema } from "./shared/schema";
 import { z } from "zod";
 import path from "path";
