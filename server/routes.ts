@@ -2,7 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage.js";
 import { sendThankYouEmail } from "./mailer.js";
-import { insertContactMessageSchema } from "./shared/schema";
+import { insertContactMessageSchema } from "./shared/schema.js";
 import { z } from "zod";
 import path from "path";
 import { fileURLToPath } from "url";
