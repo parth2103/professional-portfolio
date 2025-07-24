@@ -26,8 +26,8 @@ export function ProjectsSection() {
       description: "Developed an unbeatable checkers AI using Python, Minimax algorithm, and alpha-beta pruning. Optimized for speed with custom heuristics.",
       image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=400",
       tech: ["Python", "PyGame", "AI/ML"],
-      github: "#",
-      demo: "#",
+      github: "https://github.com/parth2103/CheckersAI",
+      //demo: "#",
       colors: {
         primary: "bg-blue",
         secondary: "bg-purple",
@@ -39,8 +39,8 @@ export function ProjectsSection() {
       description: "Provisioned 15+ AWS resources using Terraform and deployed microservices on EKS. Automated CI/CD with GitHub Actions.",
       image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=400",
       tech: ["AWS", "Terraform", "Kubernetes"],
-      github: "#",
-      demo: "#",
+      github: "https://github.com/parth2103/aws-iac-terraform",
+      //demo: "#",
       colors: {
         primary: "bg-orange",
         secondary: "bg-purple",
@@ -52,8 +52,8 @@ export function ProjectsSection() {
       description: "Built a backend enrollment system with RBAC and optimized SQL queries. Supports 1,000+ concurrent users with real-time updates.",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=400",
       tech: ["Node.js", "PostgreSQL", "React"],
-      github: "#",
-      demo: "#",
+      github: "https://github.com/parth2103/student-info-system",
+      //demo: "#",
       colors: {
         primary: "bg-green",
         secondary: "bg-blue",
@@ -65,8 +65,8 @@ export function ProjectsSection() {
       description: "Deployed secure chat system with VoIP and video conferencing using Kubernetes. Achieved 99.9% uptime with real-time communication.",
       image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=400",
       tech: ["Kubernetes", "PostgreSQL", "Nginx"],
-      github: "#",
-      demo: "#",
+      github: "https://github.com/parth2103/cloud-chat-server",
+      //demo: "#",
       colors: {
         primary: "bg-blue",
         secondary: "bg-green",
@@ -79,7 +79,7 @@ export function ProjectsSection() {
       image: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=400",
       tech: ["Python", "AWS Lambda", "ML"],
       github: "#",
-      demo: "#",
+      //demo: "#",
       colors: {
         primary: "bg-blue",
         secondary: "bg-orange",
@@ -148,8 +148,15 @@ export function ProjectsSection() {
                         size="sm"
                         className="text-primary hover:text-secondary transition-colors p-0"
                       >
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2"
+                        >
                         <Github size={16} className="mr-2" />
                         GitHub
+                        </a>
                       </Button>
                     )}
                     {project.demo && (

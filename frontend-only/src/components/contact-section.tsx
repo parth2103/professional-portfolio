@@ -10,7 +10,7 @@ import { useToast } from "@/hooks/use-toast";
 import { slideUp, fadeInUp, buttonHover } from "@/lib/animations";
 
 export function ContactSection() {
-  const [formData, setFormData] = useState({
+/*  const [formData, setFormData] = useState({
     name: "",
     email: "",
     subject: "",
@@ -59,7 +59,7 @@ export function ContactSection() {
     } finally {
       setIsSubmitting(false);
     }
-  };
+  }; */
 
   const contactInfo = [
     {
@@ -162,79 +162,79 @@ export function ContactSection() {
           >
             <Card className="bg-card border-border">
               <CardContent className="p-8">
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <Label htmlFor="name" className="text-foreground">
-                      Name
-                    </Label>
-                    <Input
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      placeholder="Your Name"
-                      required
-                      className="mt-2"
-                    />
-                  </div>
+<form
+  action="https://formsubmit.co/parth.gohil.work@gmail.com"
+  method="POST"
+  className="space-y-6"
+>
+  {/* Disable CAPTCHA and optionally redirect to a thank you page */}
+  <input type="hidden" name="_captcha" value="false" />
+  {/* Optional: <input type="hidden" name="_next" value="https://yourdomain.com/thank-you" /> */}
 
-                  <div>
-                    <Label htmlFor="email" className="text-foreground">
-                      Email
-                    </Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      placeholder="your@email.com"
-                      required
-                      className="mt-2"
-                    />
-                  </div>
+  <div>
+    <Label htmlFor="name" className="text-foreground">
+      Name
+    </Label>
+    <Input
+      id="name"
+      name="name"
+      placeholder="Your Name"
+      required
+      className="mt-2"
+    />
+  </div>
 
-                  <div>
-                    <Label htmlFor="subject" className="text-foreground">
-                      Subject
-                    </Label>
-                    <Input
-                      id="subject"
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleInputChange}
-                      placeholder="Project Discussion"
-                      required
-                      className="mt-2"
-                    />
-                  </div>
+  <div>
+    <Label htmlFor="email" className="text-foreground">
+      Email
+    </Label>
+    <Input
+      id="email"
+      name="email"
+      type="email"
+      placeholder="your@email.com"
+      required
+      className="mt-2"
+    />
+  </div>
 
-                  <div>
-                    <Label htmlFor="message" className="text-foreground">
-                      Message
-                    </Label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      placeholder="Tell me about your project..."
-                      rows={4}
-                      required
-                      className="mt-2"
-                    />
-                  </div>
+  <div>
+    <Label htmlFor="subject" className="text-foreground">
+      Subject
+    </Label>
+    <Input
+      id="subject"
+      name="subject"
+      placeholder="Project Discussion"
+      required
+      className="mt-2"
+    />
+  </div>
 
-                  <motion.div variants={buttonHover} whileHover="hover" whileTap="tap">
-                    <Button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full gradient-bg py-3 font-semibold"
-                    >
-                      {isSubmitting ? "Sending..." : "Send Message"}
-                    </Button>
-                  </motion.div>
-                </form>
+  <div>
+    <Label htmlFor="message" className="text-foreground">
+      Message
+    </Label>
+    <Textarea
+      id="message"
+      name="message"
+      placeholder="Tell me about your project..."
+      rows={4}
+      required
+      className="mt-2"
+    />
+  </div>
+
+  <motion.div variants={buttonHover} whileHover="hover" whileTap="tap">
+    <Button
+      type="submit"
+      className="w-full gradient-bg py-3 font-semibold"
+    >
+      Send Message
+    </Button>
+  </motion.div>
+</form>
+
               </CardContent>
             </Card>
           </motion.div>

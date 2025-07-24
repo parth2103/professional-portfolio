@@ -88,14 +88,18 @@ export function HeroSection() {
             </motion.div>
 
             <motion.div variants={buttonHover} whileHover="hover" whileTap="tap">
-
-              <a
-                href="/Parth_Gohil_SoftwareEngineer_Resume.docx"
-                download
-                className="px-8 py-4 text-lg font-semibold rounded-full border-2 border-foreground hover:bg-foreground hover:text-background transition-colors duration-300"
+              <Button 
+                asChild
+                className="gradient-bg px-8 py-4 text-lg font-semibold rounded-full hover:scale-105 transition-transform duration-300"
               >
-                Download Resume
-              </a>
+                <a
+                  href="https://drive.google.com/uc?export=download&id=1Xx87Bsl8jylkXqlDIF0a6TIrhcnGbvyh"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Download Resume
+                </a>
+              </Button>
             </motion.div>
           </motion.div>
         </motion.div>
