@@ -1,3 +1,4 @@
+// src/components/navigation.tsx
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu, X, Sun, Moon } from "lucide-react";
@@ -13,7 +14,6 @@ export function Navigation() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -29,9 +29,9 @@ export function Navigation() {
   ];
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+    const el = document.querySelector(href);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
       setIsOpen(false);
     }
   };
@@ -42,88 +42,91 @@ export function Navigation() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "glass-effect" : ""
+        scrolled
+          ? "bg-background/80 backdrop-blur-sm"
+          : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="text-2xl font-bold gradient-text cursor-pointer"
-            onClick={() => scrollToSection("#home")}
+      <div className="container mx-auto px-6 py-4 flex items-center justify-between">
+        {/* Logo */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+          className="text-2xl font-bold gradient-text cursor-pointer"
+          onClick={() => scrollToSection("#home")}
+        >
+          PG
+        </motion.div>
+
+        {/* Desktop Nav + Theme */}
+        <div className="hidden md:flex items-center space-x-8">
+          {navItems.map((item, i) => (
+            <motion.button
+              key={item.href}
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 + i * 0.1 }}
+              onClick={() => scrollToSection(item.href)}
+              className="hover:text-primary transition-colors duration-300 font-medium"
+            >
+              {item.label}
+            </motion.button>
+          ))}
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() =>
+              setTheme(theme === "light" ? "dark" : "light")
+            }
+            className="ml-4"
           >
-            PG
-          </motion.div>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item, index) => (
-              <motion.button
-                key={item.href}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 + index * 0.1 }}
-                onClick={() => scrollToSection(item.href)}
-                className="hover:text-primary transition-colors duration-300 font-medium"
-              >
-                {item.label}
-              </motion.button>
-            ))}
-            
-            {/* Theme Toggle */}
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-              className="ml-4"
-            >
-              {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
-            </Button>
-          </div>
-
-          {/* Mobile Menu Button and Theme Toggle */}
-          <div className="flex items-center gap-2 md:hidden">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-            >
-              {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
-            </Button>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsOpen(!isOpen)}
-            >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </Button>
-          </div>
+            {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
+          </Button>
         </div>
 
-        {/* Mobile Navigation */}
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden mt-4 pb-4 border-t border-border"
+        {/* Mobile Toggle */}
+        <div className="flex items-center gap-2 md:hidden">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() =>
+              setTheme(theme === "light" ? "dark" : "light")
+            }
           >
-            <div className="flex flex-col space-y-4 pt-4">
-              {navItems.map((item) => (
-                <button
-                  key={item.href}
-                  onClick={() => scrollToSection(item.href)}
-                  className="text-left hover:text-primary transition-colors duration-300 font-medium"
-                >
-                  {item.label}
-                </button>
-              ))}
-            </div>
-          </motion.div>
-        )}
+            {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
+          </Button>
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </Button>
+        </div>
       </div>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: "auto" }}
+          exit={{ opacity: 0, height: 0 }}
+          className="md:hidden border-t border-border bg-background/80 backdrop-blur-sm"
+        >
+          <div className="container mx-auto px-6 py-4 flex flex-col space-y-4">
+            {navItems.map((item) => (
+              <button
+                key={item.href}
+                onClick={() => scrollToSection(item.href)}
+                className="text-left hover:text-primary transition-colors duration-300 font-medium"
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+        </motion.div>
+      )}
     </motion.nav>
   );
 }
