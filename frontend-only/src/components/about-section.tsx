@@ -1,3 +1,4 @@
+// src/components/about-section.tsx
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { slideUp, fadeInUp } from "@/lib/animations";
@@ -7,6 +8,7 @@ export function AboutSection() {
     <section id="about" className="py-20 bg-muted">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Text Column */}
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -38,7 +40,7 @@ export function AboutSection() {
                 <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
                   <MapPin size={20} className="text-foreground" />
                 </div>
-                <span className="text-foreground">Los Angeles, CA</span>
+                <span className="text-foreground whitespace-nowrap">Los Angeles, CA</span>
               </div>
               
               <div className="flex items-center gap-3">
@@ -52,17 +54,18 @@ export function AboutSection() {
                 <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center">
                   <Phone size={20} className="text-foreground" />
                 </div>
-                <span className="text-foreground">(818) 574-9345</span>
+                <span className="text-foreground whitespace-nowrap">(818) 574-9345</span>
               </div>
             </motion.div>
           </motion.div>
 
+          {/* Image Column */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative"
+            className="relative max-w-lg mx-auto"
           >
             <img
               src="https://media.giphy.com/media/LaVp0AyqR5bGsC5Cbm/giphy.gif"
