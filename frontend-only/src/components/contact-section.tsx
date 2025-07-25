@@ -83,9 +83,9 @@ export function ContactSection() {
   ];
 
   const socialLinks = [
-    { icon: <Linkedin size={24} />, href: "#", color: "hover:bg-primary" },
-    { icon: <Github size={24} />, href: "#", color: "hover:bg-secondary" },
-    { icon: <Twitter size={24} />, href: "#", color: "hover:bg-accent" },
+    { icon: <Linkedin size={24} />, href: "https://www.linkedin.com/in/parth--gohil/", color: "hover:bg-primary" },
+    { icon: <Github size={24} />, href: "https://github.com/parth2103", color: "hover:bg-secondary" },
+   
   ];
 
   return (
@@ -142,6 +142,8 @@ export function ContactSection() {
                 <motion.a
                   key={index}
                   href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   variants={buttonHover}
                   whileHover="hover"
                   whileTap="tap"

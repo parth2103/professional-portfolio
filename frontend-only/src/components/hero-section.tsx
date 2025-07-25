@@ -1,3 +1,4 @@
+// src/components/hero-section.tsx
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -12,30 +13,6 @@ export function HeroSection() {
     }
   };
 
-  const handleDownloadResume = async () => {
-    try {
-      const response = await fetch("/api/resume/download");
-      const data = await response.json();
-      
-      if (data.success) {
-        // Create a downloadable file from the resume data
-        const blob = new Blob([JSON.stringify(data.data, null, 2)], {
-          type: "application/json",
-        });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "Parth_Gohil_Resume.json";
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-      }
-    } catch (error) {
-      console.error("Failed to download resume:", error);
-    }
-  };
-
   return (
     <section
       id="home"
@@ -43,40 +20,41 @@ export function HeroSection() {
     >
       <FloatingShapes />
 
-      {/* Hero Content */}
-      <div className="container mx-auto px-6 text-center relative z-10">
+      {/* Hero Content + Profile Image */}
+      <div className="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center justify-center gap-12">
+        {/* Text Block */}
         <motion.div
           initial="hidden"
           animate="visible"
           variants={fadeInUp}
-          className="space-y-6"
+          className="space-y-6 text-center md:text-left"
         >
-<motion.h1
-  variants={fadeInUp}
-  className="text-4xl md:text-5xl font-semibold text-muted-foreground mb-4"
->
-  Hi, I'm Parth Gohil
-</motion.h1>
+          <motion.h1
+            variants={fadeInUp}
+            className="text-4xl md:text-5xl font-semibold text-muted-foreground mb-4"
+          >
+            Hi, I'm Parth Gohil
+          </motion.h1>
 
-<motion.h1
-  variants={fadeInUp}
-  className="text-6xl md:text-8xl font-black leading-tight"
->
-  <span className="gradient-text">CREATIVE</span>
-  <br />
-  <span className="text-foreground">DEVELOPER</span>
-</motion.h1>
+          <motion.h1
+            variants={fadeInUp}
+            className="text-6xl md:text-8xl font-black leading-tight"
+          >
+            <span className="gradient-text">CREATIVE</span>
+            <br />
+            <span className="text-foreground">DEVELOPER</span>
+          </motion.h1>
 
           <motion.p
             variants={fadeInUp}
-            className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto mt-4"
+            className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto md:mx-0 mt-4"
           >
-          I build full stack apps, play around with cloud stuff, and try to write code that won’t haunt me later.
+            I build full stack apps, play around with cloud stuff, and try to write code that won’t haunt me later.
           </motion.p>
 
           <motion.div
             variants={fadeInUp}
-            className="flex flex-col sm:flex-row gap-4 justify-center pt-8"
+            className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-8"
           >
             <motion.div variants={buttonHover} whileHover="hover" whileTap="tap">
               <Button
@@ -88,7 +66,7 @@ export function HeroSection() {
             </motion.div>
 
             <motion.div variants={buttonHover} whileHover="hover" whileTap="tap">
-              <Button 
+              <Button
                 asChild
                 className="gradient-bg px-8 py-4 text-lg font-semibold rounded-full hover:scale-105 transition-transform duration-300"
               >
@@ -102,6 +80,20 @@ export function HeroSection() {
               </Button>
             </motion.div>
           </motion.div>
+        </motion.div>
+
+        {/* Profile Image */}
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={fadeInUp}
+          className="flex justify-center md:justify-start"
+        >
+          <img
+            src="/profile.jpg"
+            alt="Parth Gohil"
+            className="w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 rounded-full object-cover border-4 border-primary"
+          />
         </motion.div>
       </div>
 
