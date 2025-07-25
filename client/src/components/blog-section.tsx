@@ -1,3 +1,5 @@
+import { AnimatePresence } from "framer-motion";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Calendar, Clock, ExternalLink } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -17,6 +19,7 @@ interface BlogPost {
 }
 
 export function BlogSection() {
+  const [showAll, setShowAll] = useState(false);
   const blogPosts: BlogPost[] = [
     {
       title: "Building Scalable Microservices with Node.js and Docker",
@@ -79,7 +82,7 @@ export function BlogSection() {
       tags: ["ML", "Python", "Deployment", "MLOps"]
     }
   ];
-
+  const visiblePosts = showAll ? blogPosts : blogPosts.slice(0, 3);
   return (
     <section id="blog" className="py-20 bg-muted">
       <div className="container mx-auto px-6">
@@ -108,10 +111,14 @@ export function BlogSection() {
           variants={staggerContainer}
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {blogPosts.map((post, index) => (
+        <AnimatePresence mode="wait">
+          {visiblePosts.map((post, index) => (
             <motion.div
               key={index}
-              variants={fadeInUp}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              transition={{ duration: 0.3, delay: index * 0.05 }}
               className="h-full"
             >
               <Card className="bg-card border-border hover:border-primary/30 transition-all duration-300 overflow-hidden h-full flex flex-col group">
@@ -172,22 +179,28 @@ export function BlogSection() {
               </Card>
             </motion.div>
           ))}
+          </AnimatePresence>
         </motion.div>
-        
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mt-12"
-        >
-          <Button
-            variant="outline"
-            size="lg"
-            className="px-8 py-3 text-lg font-semibold border-2 border-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-300"
+        {blogPosts.length > 3 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="mt-12"
           >
-            View All Articles
-          </Button>
-        </motion.div>
+            <div className="flex justify-center">
+              <Button
+                variant="outline"
+                size="lg"
+                className="px-8 py-3 text-lg font-semibold border-2 border-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-300"
+                onClick={() => setShowAll(!showAll)}
+              >
+                {showAll ? "Show Less" : "View All Articles"}
+              </Button>
+            </div>
+          </motion.div>
+
+        )}
       </div>
     </section>
   );

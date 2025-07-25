@@ -1,3 +1,5 @@
+// src/components/ExperienceSection.tsx
+import { Fragment } from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { slideUp, staggerContainer } from "@/lib/animations";
@@ -72,40 +74,51 @@ export function ExperienceSection() {
             <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary to-secondary" />
 
             {experiences.map((exp, index) => (
-              <motion.div
-                key={index}
-                variants={slideUp}
-                className="relative mb-12 ml-16"
-              >
-                {/* Timeline Dot */}
-                <div
-                  className={`absolute -left-12 top-2 w-4 h-4 ${exp.color} rounded-full border-4 border-background`}
-                />
+              <Fragment key={index}>
+                {/* Insert Volunteering header before the Data Analytics Manager card */}
+                {exp.title === "Data Analytics Manager" && (
+                  <div className="relative mb-6 ml-16">
+                    <h3 className="text-xl font-semibold text-primary text-center">
+                      Volunteering
+                    </h3>
+                  </div>
+                )}
 
-                <Card className="bg-card border-border hover:border-primary/30 transition-all duration-300">
-                  <CardContent className="p-6">
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                      <h3 className="text-xl font-bold text-foreground">
-                        {exp.title}
-                      </h3>
-                      <span className="text-muted-foreground text-sm">
-                        {exp.duration}
-                      </span>
-                    </div>
-                    <p className="text-primary font-semibold mb-2">
-                      {exp.company}
-                    </p>
-                    <ul className="text-muted-foreground space-y-2">
-                      {exp.description.map((item, itemIndex) => (
-                        <li key={itemIndex} className="flex items-start">
-                          <span className="text-primary mr-2">•</span>
-                          <span className="text-sm leading-relaxed">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              </motion.div>
+                {/* Experience Card */}
+                <motion.div
+                  variants={slideUp}
+                  className="relative mb-12 ml-16"
+                >
+                  {/* Timeline Dot */}
+                  <div
+                    className={`absolute -left-12 top-2 w-4 h-4 ${exp.color} rounded-full border-4 border-background`}
+                  />
+
+                  <Card className="bg-card border-border hover:border-primary/30 transition-all duration-300">
+                    <CardContent className="p-6">
+                      <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                        <h3 className="text-xl font-bold text-foreground">
+                          {exp.title}
+                        </h3>
+                        <span className="text-muted-foreground text-sm">
+                          {exp.duration}
+                        </span>
+                      </div>
+                      <p className="text-primary font-semibold mb-2">
+                        {exp.company}
+                      </p>
+                      <ul className="text-muted-foreground space-y-2">
+                        {exp.description.map((item, i) => (
+                          <li key={i} className="flex items-start">
+                            <span className="text-primary mr-2">•</span>
+                            <span className="text-sm leading-relaxed">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              </Fragment>
             ))}
           </motion.div>
         </div>

@@ -47,7 +47,7 @@ export default function Home() {
           </div>
           <div className="border-t border-border pt-8">
             <p className="text-muted-foreground">
-              © 2024 Parth Gohil. All rights reserved.
+              © 2025 Parth Gohil. All rights reserved.
             </p>
           </div>
         </div>

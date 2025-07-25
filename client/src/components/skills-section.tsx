@@ -18,7 +18,7 @@ import { staggerContainer, skillCardHover } from "@/lib/animations";
 interface Skill {
   name: string;
   icon: React.ReactNode;
-  level: number;
+  level?: number;
   color: string;
 }
 
@@ -86,40 +86,52 @@ export function SkillsSection() {
         >
           Technical Skills
         </motion.h2>
+        <div className="space-y-16">
+          {/* Frontend Skills */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+          >
+            <h3 className="text-2xl font-bold text-primary mb-6 text-center">Frontend</h3>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+              {frontendSkills.map((skill, index) => (
+                <SkillCard key={index} skill={skill} />
+              ))}
+            </div>
+          </motion.div>
 
-        {/* All Skills in One Grid */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={staggerContainer}
-          className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6"
-        >
-          {[...frontendSkills, ...backendSkills, ...cloudSkills].map((skill, index) => (
-            <SkillCard key={index} skill={skill} />
-          ))}
-        </motion.div>
+          {/* Backend Skills */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+          >
+            <h3 className="text-2xl font-bold text-secondary mb-6 text-center">Backend</h3>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+              {backendSkills.map((skill, index) => (
+                <SkillCard key={index} skill={skill} />
+              ))}
+            </div>
+          </motion.div>
 
-        {/* Skill Categories */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-16 grid md:grid-cols-3 gap-8"
-        >
-          <div className="text-center">
-            <h3 className="text-xl font-bold mb-2 text-primary">Frontend</h3>
-            <p className="text-muted-foreground text-sm">React, JavaScript, UI/UX</p>
-          </div>
-          <div className="text-center">
-            <h3 className="text-xl font-bold mb-2 text-secondary">Backend</h3>
-            <p className="text-muted-foreground text-sm">Node.js, Python, Databases</p>
-          </div>
-          <div className="text-center">
-            <h3 className="text-xl font-bold mb-2 text-accent">Cloud & DevOps</h3>
-            <p className="text-muted-foreground text-sm">AWS, Docker, Kubernetes</p>
-          </div>
-        </motion.div>
+          {/* Cloud & DevOps Skills */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+          >
+            <h3 className="text-2xl font-bold text-accent mb-6 text-center">Cloud & DevOps</h3>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+              {cloudSkills.map((skill, index) => (
+                <SkillCard key={index} skill={skill} />
+              ))}
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -51,20 +51,27 @@ export function HeroSection() {
           variants={fadeInUp}
           className="space-y-6"
         >
-          <motion.h1
-            variants={fadeInUp}
-            className="text-6xl md:text-8xl font-black leading-tight"
-          >
-            <span className="gradient-text">CREATIVE</span>
-            <br />
-            <span className="text-foreground">DEVELOPER</span>
-          </motion.h1>
+<motion.h1
+  variants={fadeInUp}
+  className="text-4xl md:text-5xl font-semibold text-muted-foreground mb-4"
+>
+  Hi, I'm Parth Gohil
+</motion.h1>
+
+<motion.h1
+  variants={fadeInUp}
+  className="text-6xl md:text-8xl font-black leading-tight"
+>
+  <span className="gradient-text">CREATIVE</span>
+  <br />
+  <span className="text-foreground">DEVELOPER</span>
+</motion.h1>
 
           <motion.p
             variants={fadeInUp}
-            className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto"
+            className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto mt-4"
           >
-            Full Stack Developer • Software Engineer • Cloud Enthusiast
+          I build full stack apps, play around with cloud stuff, and try to write code that won’t haunt me later.
           </motion.p>
 
           <motion.div
@@ -81,13 +88,14 @@ export function HeroSection() {
             </motion.div>
 
             <motion.div variants={buttonHover} whileHover="hover" whileTap="tap">
-              <Button
-                onClick={handleDownloadResume}
-                variant="outline"
+
+              <a
+                href="/Parth_Gohil_SoftwareEngineer_Resume.docx"
+                download
                 className="px-8 py-4 text-lg font-semibold rounded-full border-2 border-foreground hover:bg-foreground hover:text-background transition-colors duration-300"
               >
                 Download Resume
-              </Button>
+              </a>
             </motion.div>
           </motion.div>
         </motion.div>
