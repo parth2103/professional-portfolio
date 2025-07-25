@@ -31,22 +31,10 @@ export function BlogSection() {
       readTime: "8 min read",
       category: "AI",
       image:
-        "/public/artificial-intelligence.jpg",
+        "/artificial-intelligence.jpg",
       link:
         "https://www.morganstanley.com/insights/articles/ai-trends-reasoning-frontier-models-2025-tmt",
       tags: ["AI Trends", "Custom Silicon", "Agentic Models"],
-    },
-    {
-      title: "The 2025 AI Index Report",
-      excerpt:
-        "Stanford HAI’s annual deep dive into AI performance benchmarks, real-world deployments, and investment flows across sectors.",
-      date: "2025-01-15",
-      readTime: "12 min read",
-      category: "AI",
-      image:
-        "/public/articial-intelligence-2.jpg",
-      link: "https://hai.stanford.edu/ai-index/2025-ai-index-report",
-      tags: ["AI Benchmarks", "Investments", "Deployments"],
     },
     {
       title: "Five Transformative AI Technology Trends Shaping 2025",
@@ -62,32 +50,6 @@ export function BlogSection() {
       tags: ["Autonomous Agents", "Online Learning", "Micro-LLMs"],
     },
     {
-      title: "10 Cyber Security Trends For 2025",
-      excerpt:
-        "SentinelOne breaks down the top threat vectors, rising vulnerabilities, and prevention strategies for the year ahead.",
-      date: "2025-01-10",
-      readTime: "9 min read",
-      category: "Cybersecurity",
-      image:
-        "/public/cybersecurity-1.jpg",
-      link:
-        "https://www.sentinelone.com/cybersecurity-101/cybersecurity/cyber-security-trends/",
-      tags: ["Threat Vectors", "Vulnerabilities", "Prevention Strategies"],
-    },
-    {
-      title: "Top Cybersecurity Trends to Watch in 2025",
-      excerpt:
-        "J.P. Morgan’s view on nation-state activity, AI-powered exploits, supply-chain attacks, and more key vectors.",
-      date: "2025-02-01",
-      readTime: "8 min read",
-      category: "Cybersecurity",
-      image:
-        "/public/cybersecurity-2.jpg",
-      link:
-        "https://www.jpmorgan.com/technology/technology-blog/top-cybersecurity-trends-to-watch-in-2025",
-      tags: ["Nation-State Threats", "Supply-Chain Attacks", "AI Exploits"],
-    },
-    {
       title: "Top 12 Cyber Security Trends And Predictions For 2025",
       excerpt:
         "Splashtop forecasts how AI will supercharge threat intelligence, automated response, and zero-trust adoption.",
@@ -95,35 +57,9 @@ export function BlogSection() {
       readTime: "10 min read",
       category: "Cybersecurity",
       image:
-        "/public/cybersecurity-3.jpg",
+        "/cybersecurity-3.jpg",
       link: "https://www.splashtop.com/blog/cybersecurity-trends-2025",
       tags: ["Threat Intelligence", "Automated Response", "Zero Trust"],
-    },
-    {
-      title: "Top 10 Emerging Technologies of 2025",
-      excerpt:
-        "World Economic Forum highlights breakthrough domains—from generative-AI watermarking to green fertilizer production.",
-      date: "2025-06-01",
-      readTime: "11 min read",
-      category: "Emerging Tech",
-      image:
-        "/public/emerging-tech-3.jpeg",
-      link:
-        "https://www.weforum.org/stories/2025/06/top-10-emerging-technologies-of-2025/",
-      tags: ["Generative AI", "Green Tech", "Watermarking"],
-    },
-    {
-      title: "Tech Trends 2025",
-      excerpt:
-        "Deloitte dives into spatial computing, AI-powered IT transformation, and next-gen software development paradigms.",
-      date: "2025-01-20",
-      readTime: "10 min read",
-      category: "Emerging Tech",
-      image:
-        "/public/emerging-tech-2.jpeg",
-      link:
-        "https://www.deloitte.com/us/en/insights/topics/technology-management/tech-trends.html",
-      tags: ["Spatial Computing", "IT Transformation", "Software Development"],
     },
     {
       title: "25 New Technology Trends for 2025",
@@ -133,7 +69,7 @@ export function BlogSection() {
       readTime: "9 min read",
       category: "Emerging Tech",
       image:
-        "/public/emerging-tech-1.jpg",
+        "/emerging-tech-1.jpg",
       link:
         "https://www.simplilearn.com/top-technology-trends-and-jobs-article",
       tags: ["Quantum Computing", "XR", "Biotech"],
