@@ -24,6 +24,19 @@ export function BlogSection() {
 
   const blogPosts: BlogPost[] = [
     {
+      title: "What I’m Learning While Building an AI Cybersecurity Tool",
+      excerpt:
+        "From fraud detection to deepfakes, here’s how AI is transforming cybersecurity and what I’ve discovered along the way.",
+      date: "2025-07-07",
+      readTime: "6 min read",
+      category: "Cyber-AI",
+      image:
+        "/cybersecurity-2.jpg",
+      link:
+        "https://medium.com/@parth2103/what-im-learning-while-building-an-ai-cybersecurity-tool-c64573fca342",
+      tags: ["My Article"],
+    },
+    {
       title: "5 AI Trends Shaping Innovation and ROI in 2025",
       excerpt:
         "A look at how AI reasoning, custom silicon, hyperscale migrations, and agentic models are driving enterprise value this year.",
@@ -152,7 +165,7 @@ export function BlogSection() {
 
                     <div className="flex flex-wrap gap-2 mb-4">
                       {post.tags.map((tag, tagIndex) => (
-                        <Badge key={tagIndex} variant="outline" className="text-xs">
+                        <Badge key={tagIndex} variant="secondary" className="text-xs bg-indigo-100 text-indigo-800">
                           {tag}
                         </Badge>
                       ))}
