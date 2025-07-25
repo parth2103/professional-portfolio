@@ -8,12 +8,14 @@ import { ThemeProvider } from "@/components/theme-provider";
 import Home from "@/pages/home";
 import NotFound from "@/pages/not-found";
 import { Splash } from "./components/splash";
+import ThankYouPage from "@/pages/thank-you";
 
 function Router() {
   
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/thank-you" component={ThankYouPage} />
       <Route component={NotFound} />
     </Switch>
   );
