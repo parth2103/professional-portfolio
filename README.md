@@ -147,10 +147,6 @@ Modify `src/components/skills-section.tsx` to update your technical skills.
 ### Changing Content
 All content is in the respective component files in the `src/components/` directory.
 
-## 📝 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
 ## 📬 Contact
 
 - **Email**: parth.gohil.work@gmail.com
