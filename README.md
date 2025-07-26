@@ -1,24 +1,53 @@
-# Parth Gohil Portfolio Website
+# Parth Gohil - Full Stack Developer Portfolio
 
-A modern, full-stack portfolio website built with React, TypeScript, Node.js, and PostgreSQL.
+A modern, responsive portfolio website showcasing my skills, projects, and experience as a Full Stack Developer.
+
+## 🚀 Live Demo
+
+**[View Live Site](https://parthgohil.site)**
+
+## ✨ Features
+
+- **Modern Design**: Dark/light theme with smooth animations
+- **Responsive**: Works perfectly on desktop, tablet, and mobile
+- **Interactive**: Animated sections and hover effects using Framer Motion
+- **Contact Form**: Working contact form using FormSubmit service
+- **Blog Section**: Technical articles and industry insights
+- **Resume Download**: Direct download link to my resume
+- **SEO Optimized**: Open Graph meta tags and proper meta descriptions
+- **Performance**: Fast loading with Vite build optimization
+
+## 🛠️ Technology Stack
+
+### Frontend
+- **React 18** - UI library with TypeScript
+- **TypeScript** - Type safety and better development experience
+- **Tailwind CSS** - Utility-first CSS framework
+- **Framer Motion** - Smooth animations and transitions
+- **Radix UI** - Accessible and customizable components
+- **React Query** - Data fetching and state management
+- **Wouter** - Lightweight routing solution
+- **Lucide React** - Beautiful icons
+
+### Build Tools
+- **Vite** - Fast build tool and development server
+- **PostCSS** - CSS processing
+- **TypeScript** - Type checking and compilation
 
 ## 🚀 Quick Start
 
 ### Prerequisites
 
-Before running this project locally, make sure you have:
-
 - **Node.js** (v18 or higher) - [Download here](https://nodejs.org/)
 - **npm** or **yarn** package manager
-- **PostgreSQL** database (local or cloud)
 - **Git** for version control
 
 ### Installation Steps
 
 1. **Clone the repository**
    ```bash
-   git clone <your-repo-url>
-   cd portfolio-website
+   git clone https://github.com/parth2103/professional-portfolio.git
+   cd professional-portfolio/frontend-only
    ```
 
 2. **Install dependencies**
@@ -26,200 +55,108 @@ Before running this project locally, make sure you have:
    npm install
    ```
 
-3. **Set up environment variables**
-   Create a `.env` file in the root directory:
-   ```bash
-   # Database Configuration
-   DATABASE_URL="postgresql://username:password@localhost:5432/portfolio_db"
-   
-   # PostgreSQL Connection Details
-   PGHOST="localhost"
-   PGPORT="5432"
-   PGUSER="your_username"
-   PGPASSWORD="your_password"
-   PGDATABASE="portfolio_db"
-   
-   # Session Configuration
-   SESSION_SECRET="your-secret-key-here"
-   ```
-
-4. **Set up the database**
-   ```bash
-   # Create database tables
-   npm run db:push
-   ```
-
-5. **Start the development server**
+3. **Start the development server**
    ```bash
    npm run dev
    ```
 
-6. **Open your browser**
-   Navigate to `http://localhost:5000`
+4. **Open your browser**
+   Navigate to `http://localhost:5173`
 
-## 🛠️ Development Commands
+## 🏗️ Project Structure
+
+```
+frontend-only/
+├── src/
+│   ├── components/         # Reusable UI components
+│   │   ├── ui/            # shadcn/ui components
+│   │   ├── hero-section.tsx
+│   │   ├── about-section.tsx
+│   │   ├── skills-section.tsx
+│   │   ├── projects-section.tsx
+│   │   ├── experience-section.tsx
+│   │   ├── blog-section.tsx
+│   │   ├── contact-section.tsx
+│   │   └── navigation.tsx
+│   ├── pages/             # Page components
+│   ├── hooks/             # Custom React hooks
+│   ├── lib/               # Utility functions
+│   └── main.tsx           # App entry point
+├── public/                # Static assets
+├── index.html             # HTML template
+├── package.json           # Dependencies and scripts
+├── vite.config.ts         # Vite configuration
+├── tailwind.config.js     # Tailwind CSS configuration
+└── vercel.json            # Vercel deployment configuration
+```
+
+## 🎨 Sections
+
+1. **Hero Section** - Introduction and call-to-action
+2. **About Section** - Professional background and contact info
+3. **Skills Section** - Technical competencies with visual indicators
+4. **Projects Section** - Showcase of key projects with tech stacks
+5. **Experience Section** - Professional work history
+6. **Blog Section** - Technical articles and insights
+7. **Contact Section** - Contact form and social links
+
+## 🚀 Development Commands
 
 | Command | Description |
 |---------|-------------|
 | `npm run dev` | Start development server |
 | `npm run build` | Build for production |
-| `npm run start` | Start production server |
-| `npm run check` | Type checking |
-| `npm run db:push` | Push database schema changes |
+| `npm run preview` | Preview production build |
 
-## 🗄️ Database Setup Options
+## 🌐 Deployment
 
-### Option 1: Local PostgreSQL
-
-1. **Install PostgreSQL**
-   - **Windows**: Download from [postgresql.org](https://www.postgresql.org/download/windows/)
-   - **macOS**: `brew install postgresql`
-   - **Linux**: `sudo apt-get install postgresql`
-
-2. **Create database**
-   ```bash
-   psql -U postgres
-   CREATE DATABASE portfolio_db;
-   CREATE USER your_username WITH PASSWORD 'your_password';
-   GRANT ALL PRIVILEGES ON DATABASE portfolio_db TO your_username;
-   \q
-   ```
-
-### Option 2: Cloud Database (Recommended)
-
-Use a cloud provider like:
-- **Neon** (free tier available)
-- **Supabase** (free tier available)
-- **Railway** (free tier available)
-- **PlanetScale** (free tier available)
-
-Just replace the `DATABASE_URL` in your `.env` file with your cloud database URL.
-
-## 🏗️ Project Structure
-
-```
-portfolio-website/
-├── client/                 # React frontend
-│   ├── src/
-│   │   ├── components/     # Reusable UI components
-│   │   ├── pages/          # Page components
-│   │   ├── hooks/          # Custom React hooks
-│   │   └── lib/            # Utility functions
-│   └── index.html
-├── server/                 # Express.js backend
-│   ├── index.ts            # Server entry point
-│   ├── routes.ts           # API routes
-│   ├── db.ts               # Database connection
-│   └── storage.ts          # Data access layer
-├── shared/                 # Shared types and schemas
-│   └── schema.ts           # Database schema
-├── package.json
-└── README.md
-```
-
-## 🎨 Features
-
-- **Modern Design**: Dark/light theme with smooth animations
-- **Responsive**: Works on desktop, tablet, and mobile
-- **Interactive**: Animated sections and hover effects
-- **Contact Form**: Working contact form with database storage
-- **Blog Section**: Technical articles and posts
-- **Resume Download**: Downloadable resume functionality
-- **SEO Friendly**: Optimized for search engines
-
-## 🔧 Technology Stack
-
-### Frontend
-- **React 18** - UI library
-- **TypeScript** - Type safety
-- **Tailwind CSS** - Styling
-- **Framer Motion** - Animations
-- **Radix UI** - Accessible components
-- **React Query** - Data fetching
-- **Wouter** - Routing
-
-### Backend
-- **Node.js** - Runtime
-- **Express.js** - Web framework
-- **PostgreSQL** - Database
-- **Drizzle ORM** - Database queries
-- **Zod** - Validation
-
-### Tools
-- **Vite** - Build tool
-- **ESBuild** - Fast bundling
-- **Drizzle Kit** - Database migrations
-
-## 🚀 Deployment
+This project is deployed on **Vercel** for optimal performance and easy deployment.
 
 ### Build for Production
-
 ```bash
 npm run build
 ```
 
-### Start Production Server
-
-```bash
-npm start
-```
-
 The built files will be in the `dist/` directory.
 
-## 📝 Environment Variables
+## 📧 Contact Form
 
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `DATABASE_URL` | PostgreSQL connection string | `postgresql://user:pass@host:5432/db` |
-| `PGHOST` | Database host | `localhost` |
-| `PGPORT` | Database port | `5432` |
-| `PGUSER` | Database username | `your_username` |
-| `PGPASSWORD` | Database password | `your_password` |
-| `PGDATABASE` | Database name | `portfolio_db` |
-| `SESSION_SECRET` | Session encryption key | `your-secret-key` |
+The contact form uses **FormSubmit** service, which:
+- Sends emails directly to my inbox
+- No backend required
+- Includes spam protection
+- Automatically redirects to a thank-you page
 
-## 🔍 Troubleshooting
+## 🎯 Key Features
 
-### Common Issues
+- **Performance**: Optimized with Vite for fast loading
+- **Accessibility**: Built with Radix UI for better accessibility
+- **SEO**: Proper meta tags and Open Graph data
+- **Mobile-First**: Responsive design that works on all devices
+- **Modern Stack**: Latest React and TypeScript features
+- **Clean Code**: Well-structured components and hooks
 
-1. **Database connection failed**
-   - Check your `DATABASE_URL` is correct
-   - Ensure PostgreSQL is running
-   - Verify database credentials
+## 🔧 Customization
 
-2. **Port already in use**
-   - Change port in `server/index.ts`
-   - Kill process using port 5000: `lsof -ti:5000 | xargs kill`
+### Adding New Projects
+Edit `src/components/projects-section.tsx` to add new projects to your portfolio.
 
-3. **Dependencies not installing**
-   - Clear npm cache: `npm cache clean --force`
-   - Delete `node_modules` and reinstall: `rm -rf node_modules && npm install`
+### Updating Skills
+Modify `src/components/skills-section.tsx` to update your technical skills.
 
-4. **Build errors**
-   - Check TypeScript errors: `npm run check`
-   - Ensure all dependencies are installed
+### Changing Content
+All content is in the respective component files in the `src/components/` directory.
 
-## 📧 Support
+## 📝 License
 
-If you encounter any issues:
+This project is open source and available under the [MIT License](LICENSE).
 
-1. Check the console for error messages
-2. Verify all environment variables are set
-3. Ensure database is running and accessible
-4. Check Node.js version compatibility
+## 📬 Contact
 
-## 🔄 Updates
-
-To update dependencies:
-```bash
-npm update
-```
-
-To check for outdated packages:
-```bash
-npm outdated
-```
+- **Email**: parth.gohil.work@gmail.com
+- **LinkedIn**: [Parth Gohil](https://www.linkedin.com/in/parth--gohil/)
+- **GitHub**: [parth2103](https://github.com/parth2103)
 
 ---
 
-**Happy coding!** 🚀
+**Built with ❤️ using React, TypeScript, and Tailwind CSS**
