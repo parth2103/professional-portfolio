@@ -35,11 +35,24 @@ export function ProjectsSection() {
       },
     },
     {
-      title: "Infrastructure as Code",
-      description: "Provisioned 15+ AWS resources using Terraform and deployed microservices on EKS. Automated CI/CD with GitHub Actions.",
+      title: "AI Course Builder",
+      description: "Built an intelligent course creation platform using ChatGPT API. Automatically generates structured learning content, assessments, and interactive modules with AI-powered personalization.",
+      image: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=400",
+      tech: ["Next.js", "ChatGPT API", "TypeScript"],
+      github: "https://github.com/parth2103/ai-course-builder",
+      //demo: "#",
+      colors: {
+        primary: "bg-blue",
+        secondary: "bg-green",
+        accent: "bg-muted-foreground",
+      },
+    },
+    {
+      title: "AI Automation: Social Media Content",
+      description: "Transform simple ideas into platform-optimized social media content across Facebook, Instagram, and LinkedIn with 90% time reduction. This automation system uses AI content generation, smart workflow orchestration, and multi-platform publishing to streamline your entire social media strategy.",
       image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=400",
-      tech: ["AWS", "Terraform", "Kubernetes"],
-      github: "https://github.com/parth2103/aws-iac-terraform",
+      tech: ["AI/ML", "Automation", "Social Media APIs"],
+      github: "https://github.com/parth2103/ai-social-automation",
       //demo: "#",
       colors: {
         primary: "bg-orange",
@@ -71,19 +84,6 @@ export function ProjectsSection() {
         primary: "bg-blue",
         secondary: "bg-green",
         accent: "bg-muted-foreground",
-      },
-    },
-    {
-      title: "ML-Based Resume Parser",
-      description: "Built a serverless resume parsing tool using scikit-learn and spaCy. Deployed on AWS Lambda for real-time candidate data classification.",
-      image: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=400",
-      tech: ["Python", "AWS Lambda", "ML"],
-      github: "#",
-      //demo: "#",
-      colors: {
-        primary: "bg-blue",
-        secondary: "bg-orange",
-        accent: "bg-purple",
       },
     },
   ];
