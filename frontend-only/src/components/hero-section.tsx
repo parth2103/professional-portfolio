@@ -40,17 +40,15 @@ export function HeroSection() {
 
           <motion.h1
             variants={fadeInUp}
-            className="text-4xl sm:text-6xl md:text-8xl font-black leading-tight mb-6"
+            className="text-6xl md:text-8xl font-black leading-tight mb-6"
           >
-            <div className="inline-block w-[280px] sm:w-[460px] md:w-[680px] text-center">
-              <ContainerTextFlip 
-                words={["CREATIVE", "PASSIONATE", "INNOVATIVE", "DEDICATED"]}
-                interval={2000}
-                className="bg-transparent shadow-none text-white w-full text-center"
-                textClassName="text-4xl sm:text-6xl md:text-8xl font-black text-white"
-              />
-            </div>
-            <span className="text-4xl sm:text-6xl md:text-8xl font-black text-white drop-shadow-lg">DEVELOPER</span>
+            <ContainerTextFlip 
+              words={["CREATIVE", "PASSIONATE", "INNOVATIVE", "DEDICATED"]}
+              interval={2000}
+              className="bg-transparent shadow-none min-w-[280px] sm:min-w-[400px] md:min-w-[600px] text-white"
+              textClassName="text-6xl md:text-8xl font-black text-white"
+            />
+            <span className="text-6xl md:text-8xl font-black text-white drop-shadow-lg">DEVELOPER</span>
           </motion.h1>
 
           <motion.p
