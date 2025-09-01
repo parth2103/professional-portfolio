@@ -138,50 +138,33 @@ export function ExperienceSection() {
                   {/* Experience Card */}
                   <div className={`w-full lg:w-5/12 ${isLeft ? 'lg:text-right' : 'lg:text-left'} text-center`}>
                     <CardContainer className="w-full">
-                      <CardBody className="glass-effect border-white/10 hover:border-primary/30 timeline-card hover:shadow-2xl hover:shadow-primary/10 p-5 rounded-xl w-full max-w-[500px] mx-auto flex flex-col justify-start">
+                      <CardBody className="glass-effect border-white/10 hover:border-primary/30 timeline-card hover:shadow-2xl hover:shadow-primary/10 py-2 px-3 rounded-xl w-full max-w-[280px] mx-auto flex flex-col justify-start h-auto">
                         {/* Header */}
-                        <div className="mb-3">
-                          <CardItem translateZ="50" className={`flex items-start gap-4 mb-2 ${
-                            isLeft ? 'lg:flex-row-reverse lg:text-right' : 'lg:flex-row lg:text-left'
-                          } flex-row text-center justify-center lg:justify-start`}>
-                            <div className={`p-2.5 rounded-lg bg-gradient-to-r ${exp.color} text-white flex-shrink-0`}>
+                        <div className="mb-2">
+                          <CardItem translateZ="50" className="flex items-start gap-3 mb-2 flex-row text-left justify-start">
+                            <div className={`p-2 rounded-lg bg-gradient-to-r ${exp.color} text-white flex-shrink-0`}>
                               {exp.icon}
                             </div>
                             <div className="flex-1 min-w-0">
-                              <h3 className="text-xl font-bold text-white leading-tight">
+                              <h3 className="text-lg font-bold text-white leading-tight whitespace-nowrap">
                                 {exp.title}
                               </h3>
-                              <p className="text-primary/80 font-semibold text-sm leading-tight">
+                              <p className="text-primary/80 font-semibold text-xs leading-tight">
                                 {exp.company}
                               </p>
                             </div>
                           </CardItem>
 
                           {/* Duration */}
-                          <CardItem translateZ="30" className={`flex items-center gap-2 text-sm text-white/80 ${
-                            isLeft ? 'lg:justify-end' : 'lg:justify-start'
-                          } justify-center mb-3`}>
+                          <CardItem translateZ="30" className="flex items-center gap-2 text-xs text-white/80 justify-start mb-1">
                             <Calendar className="w-4 h-4" />
                             <span>{exp.duration}</span>
                           </CardItem>
                         </div>
 
-                        {/* Description */}
-                        <CardItem translateZ="20" className="mb-2">
-                          <ul className="space-y-2 text-left">
-                            {exp.description.map((item, i) => (
-                              <li key={i} className="flex gap-2 text-sm text-white/90 leading-snug">
-                                <span className="text-primary mt-0.5 flex-shrink-0 text-xs">•</span>
-                                <span className="flex-1 break-words hyphens-auto">{item}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </CardItem>
 
                         {/* Category Badge */}
-                        <CardItem translateZ="40" className={`${
-                          isLeft ? 'lg:text-right' : 'lg:text-left'
-                        } text-center`}>
+                        <CardItem translateZ="40" className="text-left">
                           <span className="inline-block text-xs text-white/60 bg-white/10 px-3 py-1 rounded-full">
                             {exp.category}
                           </span>

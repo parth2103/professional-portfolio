@@ -43,9 +43,9 @@ export function HeroSection() {
             className="text-6xl md:text-8xl font-black leading-tight mb-6"
           >
             <ContainerTextFlip 
-              words={["CREATIVE", "PASSIONATE", "INNOVATIVE", "DEDICATED"]}
+              words={["FULLSTACK", "CREATIVE", "PASSIONATE", "INNOVATIVE"]}
               interval={2000}
-              className="bg-transparent shadow-none min-w-[280px] sm:min-w-[400px] md:min-w-[600px] text-white"
+              className="border-2 border-white/30 rounded-lg p-2 text-6xl md:text-8xl font-black text-white bg-transparent"
               textClassName="text-6xl md:text-8xl font-black text-white"
             />
             <span className="text-6xl md:text-8xl font-black text-white drop-shadow-lg">DEVELOPER</span>
