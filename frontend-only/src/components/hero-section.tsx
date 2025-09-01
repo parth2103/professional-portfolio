@@ -4,6 +4,8 @@ import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FloatingShapes } from "./floating-shapes";
 import { fadeInUp, buttonHover } from "@/lib/animations";
+import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
+import { ContainerTextFlip } from "@/components/ui/container-text-flip";
 
 export function HeroSection() {
   const scrollToSection = (href: string) => {
@@ -16,45 +18,49 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="pt-16 min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-background via-background to-muted"
+      className="pt-20 md:pt-16 min-h-screen flex items-center justify-center relative overflow-hidden bg-transparent"
     >
       <FloatingShapes />
 
       {/* Hero Content + Profile Image */}
-      <div className="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center justify-center gap-12">
+      <div className="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center justify-center gap-1 md:gap-12">
         {/* Text Block */}
         <motion.div
           initial="hidden"
           animate="visible"
           variants={fadeInUp}
-          className="space-y-6 text-center md:text-left"
+          className="text-center md:text-left"
         >
           <motion.h1
             variants={fadeInUp}
-            className="text-4xl md:text-5xl font-semibold text-muted-foreground mb-4"
+            className="text-4xl md:text-5xl font-semibold text-white mb-4 drop-shadow-lg"
           >
             Hi, I'm Parth Gohil
           </motion.h1>
 
           <motion.h1
             variants={fadeInUp}
-            className="text-6xl md:text-8xl font-black leading-tight"
+            className="text-6xl md:text-8xl font-black leading-tight mb-6"
           >
-            <span className="gradient-text">CREATIVE</span>
-            <br />
-            <span className="text-foreground">DEVELOPER</span>
+            <ContainerTextFlip 
+              words={["CREATIVE", "PASSIONATE", "INNOVATIVE", "DEDICATED"]}
+              interval={2000}
+              className="bg-transparent shadow-none min-w-[280px] sm:min-w-[400px] md:min-w-[600px] text-white"
+              textClassName="text-6xl md:text-8xl font-black text-white"
+            />
+            <span className="text-6xl md:text-8xl font-black text-white drop-shadow-lg">DEVELOPER</span>
           </motion.h1>
 
           <motion.p
             variants={fadeInUp}
-            className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto md:mx-0 mt-4"
+            className="text-lg md:text-xl text-white/90 max-w-xl mx-auto md:mx-0 mb-8 drop-shadow-lg"
           >
             I build full stack apps, play around with cloud stuff, and try to write code that won’t haunt me later.
           </motion.p>
 
           <motion.div
             variants={fadeInUp}
-            className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-8"
+            className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
           >
             <motion.div variants={buttonHover} whileHover="hover" whileTap="tap">
               <Button
@@ -89,11 +95,32 @@ export function HeroSection() {
           variants={fadeInUp}
           className="flex justify-center md:justify-start"
         >
-          <img
-            src="/profile.jpg"
-            alt="Parth Gohil"
-            className="w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 rounded-full object-cover border-4 border-primary"
-          />
+          <CardContainer className="w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80">
+            <CardBody className="w-full h-full">
+              <CardItem
+                translateZ="50"
+                className="w-full h-full"
+              >
+                <img
+                  src="/profile.jpg"
+                  alt="Parth Gohil"
+                  className="w-full h-full rounded-full object-cover border-4 border-primary shadow-2xl"
+                />
+              </CardItem>
+              <CardItem
+                translateZ="20"
+                className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20"
+              >
+                <div className="w-full h-full" />
+              </CardItem>
+              <CardItem
+                translateZ="10"
+                className="absolute inset-0 rounded-full bg-gradient-to-tr from-accent/10 to-transparent"
+              >
+                <div className="w-full h-full" />
+              </CardItem>
+            </CardBody>
+          </CardContainer>
         </motion.div>
       </div>
 
@@ -102,7 +129,7 @@ export function HeroSection() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
-        className="scroll-indicator text-foreground cursor-pointer"
+        className="scroll-indicator text-white cursor-pointer drop-shadow-lg"
         onClick={() => scrollToSection("#about")}
       >
         <ChevronDown size={24} className="animate-bounce" />

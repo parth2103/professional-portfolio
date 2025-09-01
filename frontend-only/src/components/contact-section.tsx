@@ -74,12 +74,6 @@ export function ContactSection() {
       value: "(818) 574-9345",
       color: "bg-secondary",
     },
-    {
-      icon: <MapPin size={24} />,
-      label: "Location",
-      value: "Los Angeles, CA",
-      color: "bg-accent",
-    },
   ];
 
   const socialLinks = [
@@ -89,13 +83,13 @@ export function ContactSection() {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-muted">
+    <section id="contact" className="py-20 bg-transparent">
       <div className="container mx-auto px-6">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text"
+          className="text-4xl md:text-5xl font-bold text-center mb-16 text-white"
         >
           Get In Touch
         </motion.h2>
@@ -110,10 +104,10 @@ export function ContactSection() {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-2xl font-bold mb-6 text-foreground">
+              <h3 className="text-2xl font-bold mb-6 text-white">
                 Let's Connect
               </h3>
-              <p className="text-muted-foreground text-lg leading-relaxed">
+              <p className="text-white text-lg leading-relaxed">
                 I'm always open to discussing new opportunities, innovative projects, or just having a 
                 conversation about technology. Let's build something amazing together!
               </p>
@@ -130,8 +124,8 @@ export function ContactSection() {
                     <div className="text-white">{item.icon}</div>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground">{item.label}</h4>
-                    <p className="text-muted-foreground">{item.value}</p>
+                    <h4 className="font-semibold text-white">{item.label}</h4>
+                    <p className="text-white">{item.value}</p>
                   </div>
                 </motion.div>
               ))}

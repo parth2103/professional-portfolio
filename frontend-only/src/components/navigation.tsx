@@ -1,14 +1,12 @@
 // src/components/navigation.tsx
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Menu, X, Sun, Moon } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useTheme } from "@/components/theme-provider";
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,7 +41,7 @@ export function Navigation() {
       transition={{ duration: 0.5 }}
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-background/80 backdrop-blur-sm"
+          ? "bg-black/20 backdrop-blur-sm"
           : "bg-transparent"
       }`}
     >
@@ -59,7 +57,7 @@ export function Navigation() {
           PG
         </motion.div>
 
-        {/* Desktop Nav + Theme */}
+        {/* Desktop Nav */}
         <div className="hidden md:flex items-center space-x-8">
           {navItems.map((item, i) => (
             <motion.button
@@ -68,41 +66,21 @@ export function Navigation() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 + i * 0.1 }}
               onClick={() => scrollToSection(item.href)}
-              className="hover:text-primary transition-colors duration-300 font-medium"
+              className="text-white hover:text-primary transition-colors duration-300 font-medium"
             >
               {item.label}
             </motion.button>
           ))}
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() =>
-              setTheme(theme === "light" ? "dark" : "light")
-            }
-            className="ml-4"
-          >
-            {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
-          </Button>
         </div>
 
         {/* Mobile Toggle */}
         <div className="flex items-center gap-2 md:hidden">
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() =>
-              setTheme(theme === "light" ? "dark" : "light")
-            }
-          >
-            {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
-          </Button>
-          <Button
-            variant="ghost"
-            size="icon"
+          <button
             onClick={() => setIsOpen(!isOpen)}
+            className="p-2 text-white hover:text-primary transition-colors duration-300"
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </Button>
+            {isOpen ? <X size={24} className="text-white" /> : <Menu size={24} className="text-white" />}
+          </button>
         </div>
       </div>
 
@@ -112,14 +90,14 @@ export function Navigation() {
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
-          className="md:hidden border-t border-border bg-background/80 backdrop-blur-sm"
+          className="md:hidden border-t border-white/20 bg-black/20 backdrop-blur-sm"
         >
           <div className="container mx-auto px-6 py-4 flex flex-col space-y-4">
             {navItems.map((item) => (
               <button
                 key={item.href}
                 onClick={() => scrollToSection(item.href)}
-                className="text-left hover:text-primary transition-colors duration-300 font-medium"
+                className="text-left text-white hover:text-primary transition-colors duration-300 font-medium"
               >
                 {item.label}
               </button>

@@ -92,13 +92,13 @@ export function BlogSection() {
   const visiblePosts = showAll ? blogPosts : blogPosts.slice(0, 3);
 
   return (
-    <section id="blog" className="py-20 bg-muted">
+    <section id="blog" className="py-20 bg-transparent">
       <div className="container mx-auto px-6">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-bold text-center mb-4 gradient-text"
+          className="text-4xl md:text-5xl font-bold text-center mb-4 text-white"
         >
           Latest Articles
         </motion.h2>
@@ -107,7 +107,7 @@ export function BlogSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center text-muted-foreground mb-16 max-w-2xl mx-auto"
+          className="text-center text-white mb-16 max-w-2xl mx-auto"
         >
           Insights, tutorials, and thoughts on modern web development, cloud architecture, and software engineering best practices.
         </motion.p>

@@ -1,179 +1,32 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { staggerContainer, projectCardHover } from "@/lib/animations";
-
-interface Project {
-  title: string;
-  description: string;
-  image: string;
-  tech: string[];
-  github?: string;
-  demo?: string;
-  colors: {
-    primary: string;
-    secondary: string;
-    accent: string;
-  };
-}
+import { staggerContainer } from "@/lib/animations";
+import { ProjectsExpandable } from "./projects-expandable";
 
 export function ProjectsSection() {
-  const projects: Project[] = [
-    {
-      title: "AI-Powered Checkers Game",
-      description: "Developed an unbeatable checkers AI using Python, Minimax algorithm, and alpha-beta pruning. Optimized for speed with custom heuristics.",
-      image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=400",
-      tech: ["Python", "PyGame", "AI/ML"],
-      github: "https://github.com/parth2103/CheckersAI",
-      //demo: "#",
-      colors: {
-        primary: "bg-blue",
-        secondary: "bg-purple",
-        accent: "bg-green",
-      },
-    },
-    {
-      title: "AI Course Builder",
-      description: "Built an intelligent course creation platform using ChatGPT API. Automatically generates structured learning content, assessments, and interactive modules with AI-powered personalization.",
-      image: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=400",
-      tech: ["Next.js", "ChatGPT API", "TypeScript"],
-      github: "https://github.com/parth2103/ai-course-builder",
-      //demo: "#",
-      colors: {
-        primary: "bg-blue",
-        secondary: "bg-green",
-        accent: "bg-muted-foreground",
-      },
-    },
-    {
-      title: "AI Automation: Social Media Content",
-      description: "Transform simple ideas into platform-optimized social media content across Facebook, Instagram, and LinkedIn with 90% time reduction. This automation system uses AI content generation, smart workflow orchestration, and multi-platform publishing to streamline your entire social media strategy.",
-      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=400",
-      tech: ["AI/ML", "Automation", "Social Media APIs"],
-      github: "https://github.com/parth2103/ai-social-automation",
-      //demo: "#",
-      colors: {
-        primary: "bg-orange",
-        secondary: "bg-purple",
-        accent: "bg-blue",
-      },
-    },
-    {
-      title: "Student Information System",
-      description: "Built a backend enrollment system with RBAC and optimized SQL queries. Supports 1,000+ concurrent users with real-time updates.",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=400",
-      tech: ["Node.js", "PostgreSQL", "React"],
-      github: "https://github.com/parth2103/student-info-system",
-      //demo: "#",
-      colors: {
-        primary: "bg-green",
-        secondary: "bg-blue",
-        accent: "bg-cyan",
-      },
-    },
-    {
-      title: "Cloud-Based Chat Server",
-      description: "Deployed secure chat system with VoIP and video conferencing using Kubernetes. Achieved 99.9% uptime with real-time communication.",
-      image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=400",
-      tech: ["Kubernetes", "PostgreSQL", "Nginx"],
-      github: "https://github.com/parth2103/cloud-chat-server",
-      //demo: "#",
-      colors: {
-        primary: "bg-blue",
-        secondary: "bg-green",
-        accent: "bg-muted-foreground",
-      },
-    },
-  ];
-
   return (
-    <section id="projects" className="py-20 bg-muted">
+    <section id="projects" className="py-20 bg-transparent">
       <div className="container mx-auto px-6">
-        <motion.h2
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text"
+          className="text-center mb-16"
         >
-          Featured Projects
-        </motion.h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+            Featured Projects
+          </h2>
+          <p className="text-white text-lg max-w-2xl mx-auto">
+            A showcase of my latest work in web development, AI, and innovative solutions
+          </p>
+        </motion.div>
 
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={staggerContainer}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              variants={projectCardHover}
-              whileHover="hover"
-              className="project-card h-full"
-            >
-              <Card className="bg-card border-border hover:border-primary/30 transition-all duration-300 overflow-hidden h-full flex flex-col">
-                <div className="relative overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                </div>
-                <CardContent className="p-6 flex-1 flex flex-col">
-                  <h3 className="text-xl font-bold mb-3 text-foreground">
-                    {project.title}
-                  </h3>
-                  <p className="text-muted-foreground mb-4 text-sm leading-relaxed flex-1">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.map((tech, techIndex) => (
-                      <Badge
-                        key={techIndex}
-                        variant="secondary"
-                        className="text-xs"
-                      >
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                  <div className="flex gap-4 mt-auto">
-                    {project.github && (
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        className="text-primary hover:text-secondary transition-colors p-0"
-                      >
-                        <a
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2"
-                        >
-                        <Github size={16} className="mr-2" />
-                        GitHub
-                        </a>
-                      </Button>
-                    )}
-                    {project.demo && (
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        className="text-primary hover:text-secondary transition-colors p-0"
-                      >
-                        <ExternalLink size={16} className="mr-2" />
-                        Live Demo
-                      </Button>
-                    )}
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+          <ProjectsExpandable />
         </motion.div>
       </div>
     </section>

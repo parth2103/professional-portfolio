@@ -22,7 +22,7 @@ export function Splash({ onFinish }: SplashProps) {
       >
         {/* swap in your logo or initials SVG here */}
         <motion.img
-          src="/logo.png"
+          src="/logo2.png"
           alt="Logo"
           className="w-90 h-90"
           initial={{ scale: 0.8 }}
