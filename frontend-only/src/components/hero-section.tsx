@@ -29,7 +29,7 @@ export function HeroSection() {
           initial="hidden"
           animate="visible"
           variants={fadeInUp}
-          className="text-center md:text-left"
+          className="text-center md:text-left flex-shrink-0 w-full md:w-[600px]"
         >
           <motion.h1
             variants={fadeInUp}
@@ -38,18 +38,22 @@ export function HeroSection() {
             Hi, I'm Parth Gohil
           </motion.h1>
 
-          <motion.h1
+          <motion.div
             variants={fadeInUp}
             className="text-6xl md:text-8xl font-black leading-tight mb-6"
           >
-            <ContainerTextFlip 
-              words={["FULLSTACK", "CREATIVE", "PASSIONATE", "INNOVATIVE"]}
-              interval={2000}
-              className="border-2 border-white/30 rounded-lg p-2 text-3xl md:text-8xl font-black text-white bg-transparent"
-              textClassName="text-3xl md:text-8xl font-black text-white"
-            />
-            <span className="text-3xl md:text-8xl font-black text-white drop-shadow-lg">DEVELOPER</span>
-          </motion.h1>
+            <div className="flex items-baseline justify-center md:justify-start mb-2">
+              <ContainerTextFlip 
+                words={["FULLSTACK", "CREATIVE", "PASSIONATE", "INNOVATIVE"]}
+                interval={2000}
+                className="border-2 border-white/30 rounded-lg p-2 text-3xl md:text-8xl font-black text-white bg-transparent"
+                textClassName="text-3xl md:text-8xl font-black text-white"
+              />
+            </div>
+            <div className="text-center md:text-left">
+              <span className="text-3xl md:text-8xl font-black text-white drop-shadow-lg">DEVELOPER</span>
+            </div>
+          </motion.div>
 
           <motion.p
             variants={fadeInUp}
